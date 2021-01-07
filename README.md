@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 4. install dependencies using command:
 	command: npm install
 5. host the application
-	command: ng serve -o
+	command: npm start
 6. application will be hosted on http://localhost:4200/cocktails
 
 ## Development server
