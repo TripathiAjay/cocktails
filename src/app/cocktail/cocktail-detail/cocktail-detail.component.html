@@ -1,0 +1,39 @@
+<section *ngIf="cocktail">
+    <header>
+        <span>
+            <img src="{{cocktail.strDrinkThumb ? cocktail.strDrinkThumb : cardImageURL}}" alt="Avatar">
+        </span>
+        <span>
+            <h3>Details</h3>
+            <table>
+                <tr>
+                    <td>Name </td><td class="bold">{{cocktail.strDrink}} (ID: {{cocktail.idDrink}})</td>
+                </tr>
+                <tr>
+                    <td>Category </td><td class="bold">{{cocktail.strCategory}}</td>
+                </tr>
+                <tr>
+                    <td>Alcoholic </td><td class="bold">{{cocktail.strAlcoholic}}</td>
+                </tr>
+                <tr>
+                    <td>Glass </td><td class="bold">{{cocktail.strGlass}}</td>
+                </tr>
+            </table>
+       </span>
+    </header>
+    <section class="details">
+        <span>
+            <h3>Ingredients</h3>
+            <ul *ngIf="cocktail.ingredients?.length">
+                <li *ngFor="let intgredient of cocktail.ingredients">{{intgredient}}</li>
+            </ul>
+        </span>
+        <span>
+            <h3>Instructions</h3>
+            <p>{{cocktail.strInstructions}}</p>
+        </span>
+    </section>
+    <footer>
+        <button type="button" (click)="goToCocktailList()">Back to Cocktails</button>
+    </footer>
+</section>
