@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
+# Steps to run the application
+1. open cmd(windows + r, then type cmd and enter), change current directory to cocktails folder
+2. install nodejs(if not present, check node version using command 'node -v') 
+3. install angular cli version 10.2.0 using command(if a different version is pre-installed):
+	command: npm install @angular/cli@10.2.0
+4. install dependencies using command:
+	command: npm install
+5. host the application
+	command: ng serve -o
+6. application will be hosted on http://localhost:4200/cocktails
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
