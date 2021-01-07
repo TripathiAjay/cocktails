@@ -1,0 +1,62 @@
+<div>
+  <header>
+    <h1>Cocktail Menu</h1>
+    <h2 class="blink pointer" (click)="generateRandomDrink()">Surprise Me !!!</h2>
+  </header>
+  <section>
+    <section class="filter-container">
+      <div>
+        <label>Name</label>
+        <input type="text" [(ngModel)]="searchedText" (ngModelChange)="searchedTextUpdate.next($event)">
+      </div>
+      <div>
+        <label>Starting With:</label>
+        <input type="text" maxlength="1" [(ngModel)]="searchedCharacter"
+          (ngModelChange)="searchByFirstCharacter($event)">
+      </div>
+      <div>
+        <label>Categories</label>
+        <select name="category" id="category" [(ngModel)]="selectedCategory" (ngModelChange)="filterByCategory($event)">
+          <option *ngFor="let category of categoryList$ | async" value="{{category.strCategory}}">
+            {{category.strCategory}}</option>
+        </select>
+      </div>
+      <div>
+        <label>Alcoholic</label>
+        <select name="alcoholic" id="alcoholic" [(ngModel)]="selectedAlcoholic"
+          (ngModelChange)="filterByAlcoholic($event)">
+          <option *ngFor="let alcoholic of alcoholicList$ | async" value="{{alcoholic.strAlcoholic}}">
+            {{alcoholic.strAlcoholic}}</option>
+        </select>
+      </div>
+      <div>
+        <label>Glasses</label>
+        <select name="glass" id="glass" [(ngModel)]="selectedGlass" (ngModelChange)="filterByGlass($event)">
+          <option *ngFor="let glass of glassList$ | async" value="{{glass.strGlass}}">{{glass.strGlass}}</option>
+        </select>
+      </div>
+      <div>
+        <label>Ingredients</label>
+        <select name="ingredient" id="ingredient" [(ngModel)]="selectedIngredient"
+          (ngModelChange)="filterByIngredient($event)">
+          <option *ngFor="let ingredient of ingredientList$ | async" value="{{ingredient.strIngredient1}}">
+            {{ingredient.strIngredient1}}</option>
+        </select>
+      </div>
+      <div>
+        <button type="button" class="refresh-button" (click)="clearFilter(); searchByName('')">Refresh</button>
+      </div>
+    </section>
+
+    <section class="card-container">
+      <ng-container>
+        <a class="card pointer" *ngFor="let cocktail of cocktailList$ | async" routerLink="detail/{{cocktail.idDrink}}">
+          <img src="{{cocktail.strDrinkThumb ? cocktail.strDrinkThumb : cardImageURL}}" alt="Avatar">
+          <div class="container">
+            <h4><b>{{cocktail.strDrink}}</b></h4>
+          </div>
+        </a>
+      </ng-container>
+    </section>
+  </section>
+</div>

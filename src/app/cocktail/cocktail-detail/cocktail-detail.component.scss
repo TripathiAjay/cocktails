@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    img {
+        width: 200px;
+    }
+    span {
+        margin: 10px;
+        padding: 10px;
+        td {
+            padding: 8px;
+        }
+    }
+}
+
+.details {
+    display: flex;
+    span {
+        margin: 10px;
+        padding: 10px;
+    }
+}
+footer {
+    text-align: center;
+}
+
+p {
+    word-break: break-all;
+}
+
+.bold {
+    font-weight: bold;
+}
